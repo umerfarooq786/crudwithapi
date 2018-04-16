@@ -69,9 +69,11 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request)
     {
-        //
+        $category= Category::findOrFail($request->category_id);
+        $category->update($request->all());
+        return back();
     }
 
     /**
@@ -80,8 +82,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Request $request)
     {
-        //
+        $category= Category::findOrFail($request->category_id);
+        $category->delete();
+        return back();
     }
 }

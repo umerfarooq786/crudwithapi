@@ -159,6 +159,26 @@ desired effect
 <script src="{{ URL::to('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ URL::to('dist/js/adminlte.min.js') }}"></script>
+<script>
+    $('#edit').on('show.bs.modal',function (event) {
+        var button=$(event.relatedTarget)
+        var title=button.data('mytitle')
+        var description=button.data('mydescription')
+        var cat_id = button.data('catid')
+        var modal=$(this)
+        modal.find('.modal-body #title').val(title);
+        modal.find('.modal-body #des').val(description);
+        modal.find('.modal-body #cat_id').val(cat_id);
+
+    })
+    $('#delete').on('show.bs.modal',function (event) {
+        var button=$(event.relatedTarget)
+        var cat_id = button.data('catid')
+        var modal=$(this)
+        modal.find('.modal-body #cat_id').val(cat_id);
+
+    })
+</script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
