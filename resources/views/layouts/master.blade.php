@@ -111,8 +111,10 @@ desired effect
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="{{url('category')}}"><i class="fa fa-link"></i> <span>Category</span></a></li>
-
+                {{--<li class="active"><a href="{{url('category')}}"><i class="fa fa-link"></i> <span>Category</span></a></li>--}}
+                <li class="active"><a href="{{url('specaility')}}"><i class="fa fa-link"></i> <span>Specaility</span></a></li>
+                <li class="active"><a href="{{url('technician')}}"><i class="fa fa-link"></i> <span>Technician</span></a></li>
+                {{--<li class="active"><a href="{{url('Article')}}"><i class="fa fa-link"></i> <span>Article</span></a></li>--}}
 
             </ul>
             <!-- /.sidebar-menu -->
@@ -172,9 +174,9 @@ desired effect
 
     })
     $('#delete').on('show.bs.modal',function (event) {
-        var button=$(event.relatedTarget)
-        var cat_id = button.data('catid')
-        var modal=$(this)
+        var button=$(event.relatedTarget);
+        var cat_id = button.data('catid');
+        var modal=$(this);
         modal.find('.modal-body #cat_id').val(cat_id);
 
     })
