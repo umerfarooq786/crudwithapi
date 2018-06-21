@@ -115,6 +115,7 @@ desired effect
                 <li class="active"><a href="{{url('specaility')}}"><i class="fa fa-link"></i> <span>Specaility</span></a></li>
                 <li class="active"><a href="{{url('technician')}}"><i class="fa fa-link"></i> <span>Technician</span></a></li>
                 <li class="active"><a href="{{url('category')}}"><i class="fa fa-link"></i> <span>Service Category</span></a></li>
+                <li class="active"><a href="{{url('item')}}"><i class="fa fa-link"></i> <span>Item</span></a></li>
                 {{--<li class="active"><a href="{{url('Article')}}"><i class="fa fa-link"></i> <span>Article</span></a></li>--}}
 
             </ul>

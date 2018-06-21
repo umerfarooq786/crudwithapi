@@ -37,7 +37,7 @@
 
                         <tr>
                             <td>{{ $technician->id }}</td>
-                            <td>{{ $technician->name }}</td>
+                            <td>{{ $technician->t_name }}</td>
                             <td>{{ $technician->cnic }}</td>
                             <td>{{ $technician->email }}</td>
                             <td>{{ $technician->address }}</td>
@@ -47,7 +47,7 @@
                             {{--<td><img src="{{asset('storage/upload/'.$technician->image. '.jpg')}}" width="100px" height="100px"> </td>--}}
                             <td><img src="{{asset('storage/upload/'.$technician->image)}}" width="100px" height="100px"> </td>
                             {{--<td>{{ $technician->image }}</td>--}}
-                            <td>{{ $technician->specaility_id }}</td>
+                            <td>{{ $technician->name }}</td>
                             {{--<td>--}}
                                 {{--<a href='{{ url("/updatespecaility/{$specaility->id}") }}'><button class="btn btn-success">Update </button></a>--}}
                                 {{--<a href='{{ url("/deletespecaility/{$specaility->id}") }}'><button class="btn btn-danger"> Delete </button></a>--}}

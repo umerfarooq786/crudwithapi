@@ -24,7 +24,8 @@ Route::get('/Article','ArticleController@index');
 Route::get('/createspecaility',function (){
     return view('specaility.createspecaility');
 });
-
+Route::get('/createitem','ItemController@getCategory');
+Route::post('/insertitem','ItemController@create');
 Route::get('/createtechnician','TechnicianController@getSpecaility');
 Route::post('/inserttechnician','TechnicianController@create');
 Route::get('/technician','TechnicianController@index');
@@ -36,3 +37,4 @@ Route::post('/editspecaility/{id}','SpecailityController@edit');
 Route::get('/deletespecaility/{id}','SpecailityController@delete');
 Route::get('/technician', 'TechnicianController@index');
 Route::get('/category', 'CategoryController@index');
+Route::get('/item', 'ItemController@index');

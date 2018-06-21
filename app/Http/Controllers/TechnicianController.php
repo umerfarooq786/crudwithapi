@@ -6,6 +6,7 @@ use App\Technician;
 use Illuminate\Http\Request;
 use App\Http\Resources\Technician\TechnicianResource;
 use App\Specaility;
+use Illuminate\Support\Facades\DB;
 
 class TechnicianController extends Controller
 {
@@ -17,12 +18,21 @@ class TechnicianController extends Controller
     public function index()
     {
         $technician= Technician::all();
-        //$technician= DB::
-        return view('Technician.technician',['technicians' => $technician, ]);
+        $technician=DB::table('technicians')
+            ->join('specailities', 'specailities.id', '=', 'technicians.specaility_id')
+            ->select('technicians.*', 'specailities.name')
+            ->get();
+
+        return view('Technician.technician',['technicians' => $technician ]);
     }
     public function indexforApi()
     {
-        return Technician::all();
+        $technician=DB::table('technicians')
+            ->join('specailities', 'specailities.id', '=', 'technicians.specaility_id')
+            ->select('technicians.*', 'specailities.name')
+            ->get();
+        return $technician;
+        //return Technician::all();
         //return new BusResourceCollection(Bus::all());
     }
     public function getSpecaility()

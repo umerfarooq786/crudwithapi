@@ -7,7 +7,7 @@ use App\Specaility;
 
 class Technician extends Model
 {
-    public function Specaility()
+    public function specaility()
     {
         return $this->belongsTo('Specaility','foreign_key');
     }
