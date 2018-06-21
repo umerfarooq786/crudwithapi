@@ -16,6 +16,7 @@ class CategoryController extends Controller
     {
         $categories= Category::all();
         return view('category.category',['categories' => $categories]);
+
     }
     public function indexforApi()
     {
