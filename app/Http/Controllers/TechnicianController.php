@@ -89,7 +89,7 @@ class TechnicianController extends Controller
      */
     public function show(Technician $technician)
     {
-        //
+        return new TechnicianResource($technician);
     }
 
     /**

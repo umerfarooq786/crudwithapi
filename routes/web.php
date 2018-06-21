@@ -35,3 +35,4 @@ Route::get('/updatespecaility/{id}','SpecailityController@update');
 Route::post('/editspecaility/{id}','SpecailityController@edit');
 Route::get('/deletespecaility/{id}','SpecailityController@delete');
 Route::get('/technician', 'TechnicianController@index');
+Route::get('/category', 'CategoryController@index');

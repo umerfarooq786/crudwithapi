@@ -17,3 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/technicians','TechnicianController@indexforApi');
+Route::get('/technician/{id}','TechnicianController@show');
+Route::get('/categories','CategoryController@indexforApi');
+Route::get('/category/{id}','CategoryController@show');

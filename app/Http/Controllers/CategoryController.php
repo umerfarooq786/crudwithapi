@@ -14,8 +14,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories=Category::all();
-        return view('category.index',compact('categories'));
+        $categories= Category::all();
+        return view('category.category',['categories' => $categories]);
+    }
+    public function indexforApi()
+    {
+        return Category::all();
+        //return new BusResourceCollection(Bus::all());
     }
 
     /**
@@ -36,8 +41,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
-        return back();
+        //
     }
 
     /**
@@ -48,7 +52,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return new CategoryResource($category);
     }
 
     /**
@@ -69,11 +73,9 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Category $category)
     {
-        $category= Category::findOrFail($request->category_id);
-        $category->update($request->all());
-        return back();
+        //
     }
 
     /**
@@ -82,10 +84,8 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Category $category)
     {
-        $category= Category::findOrFail($request->category_id);
-        $category->delete();
-        return back();
+        //
     }
 }

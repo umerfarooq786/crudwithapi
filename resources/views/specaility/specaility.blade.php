@@ -20,7 +20,7 @@
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Specaility</th>
+                    <th scope="col">Service's Category </th>
                 </tr>
                 </thead>
                 <tbody>
