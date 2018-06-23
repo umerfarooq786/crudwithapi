@@ -18,5 +18,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/technicians','TechnicianController@indexforApi');
 Route::get('/technician/{id}','TechnicianController@show');
+Route::get('/category/{id}/items', function($id){
+    return DB::table('items')
+        ->select('items.*')
+        ->where('items.category_id','=',$id)
+        ->get();
+});
+Route::get('/item/{id}/brands', function($id){
+    return DB::table('brands')
+        ->select('brands.*')
+        ->where('brands.item_id','=',$id)
+        ->get();
+});
 Route::get('/categories','CategoryController@indexforApi');
 Route::get('/category/{id}','CategoryController@show');

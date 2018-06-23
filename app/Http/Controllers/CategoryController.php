@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Technician;
 use Illuminate\Http\Request;
+use App\Http\Resources\Catogory\CategoryResource;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -16,6 +19,16 @@ class CategoryController extends Controller
     {
         $categories= Category::all();
         return view('category.category',['categories' => $categories]);
+
+    }
+    public function getCategories()
+    {
+        $categories= Category::all();
+        $technicians=DB::table('technicians')
+            ->join('specailities', 'specailities.id', '=', 'technicians.specaility_id')
+            ->select('technicians.*', 'specailities.name')
+            ->get();
+        return view('home',['categories' => $categories,'technicians' => $technicians]);
 
     }
     public function indexforApi()
@@ -51,9 +64,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($category)
     {
-        return new CategoryResource($category);
+        return DB::table('categories')
+            ->select('categories.*')->where('categories.id','=',$category)
+            ->get();
+//        return new CategoryResource($category);
     }
 
     /**

@@ -17,7 +17,7 @@ class TechnicianController extends Controller
      */
     public function index()
     {
-        $technician= Technician::all();
+        //$technician= Technician::all();
         $technician=DB::table('technicians')
             ->join('specailities', 'specailities.id', '=', 'technicians.specaility_id')
             ->select('technicians.*', 'specailities.name')
@@ -97,9 +97,12 @@ class TechnicianController extends Controller
      * @param  \App\Technician  $technician
      * @return \Illuminate\Http\Response
      */
-    public function show(Technician $technician)
+    public function show($technician)
     {
-        return new TechnicianResource($technician);
+        return DB::table('technicians')
+            ->join('specailities', 'specailities.id', '=', 'technicians.specaility_id')
+            ->select('technicians.*', 'specailities.name')->where('technicians.id','=',$technician)
+            ->get();
     }
 
     /**
