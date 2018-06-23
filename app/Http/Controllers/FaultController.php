@@ -14,7 +14,8 @@ class FaultController extends Controller
      */
     public function index()
     {
-        //
+        $fault=Fault::all();
+        return $fault;
     }
 
     /**

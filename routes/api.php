@@ -16,6 +16,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('bookservice', 'BookServiceController@store');
+Route::delete('bookservice/{id}', 'BookServiceController@destroy');
+Route::put('bookservice/{id}', 'BookServiceController@update');
+Route::get('/faults',function ()
+{
+    return DB::table('faults')
+             ->select('faults.*')
+             ->get();
+});
 Route::get('/technicians','TechnicianController@indexforApi');
 Route::get('/technician/{id}','TechnicianController@show');
 Route::get('/category/{id}/items', function($id){
