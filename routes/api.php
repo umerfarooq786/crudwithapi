@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\NotificationBroadcast;
 use Illuminate\Http\Request;
 
 /*
@@ -20,26 +21,25 @@ Route::post('bookservice', 'BookServiceController@store');
 Route::delete('bookservice/{id}', 'BookServiceController@destroy');
 Route::put('bookservice/{id}', 'BookServiceController@update');
 Route::get('bookservice', 'BookServiceController@bookservice');
-Route::get('/faults',function ()
-{
+Route::get('/faults', function () {
     return DB::table('faults')
-             ->select('faults.*')
-             ->get();
+        ->select('faults.*')
+        ->get();
 });
 
-Route::get('/technicians','TechnicianController@indexforApi');
-Route::get('/technician/{id}','TechnicianController@show');
-Route::get('/category/{id}/items', function($id){
+Route::get('/technicians', 'TechnicianController@indexforApi');
+Route::get('/technician/{id}', 'TechnicianController@show');
+Route::get('/category/{id}/items', function ($id) {
     return DB::table('items')
         ->select('items.*')
-        ->where('items.category_id','=',$id)
+        ->where('items.category_id', '=', $id)
         ->get();
 });
-Route::get('/item/{id}/brands', function($id){
+Route::get('/item/{id}/brands', function ($id) {
     return DB::table('brands')
         ->select('brands.*')
-        ->where('brands.item_id','=',$id)
+        ->where('brands.item_id', '=', $id)
         ->get();
 });
-Route::get('/categories','CategoryController@indexforApi');
-Route::get('/category/{id}','CategoryController@show');
+Route::get('/categories', 'CategoryController@indexforApi');
+Route::get('/category/{id}', 'CategoryController@show');

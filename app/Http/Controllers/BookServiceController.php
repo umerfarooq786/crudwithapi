@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BookService;
+use App\Events\NotificationBroadcast;
 use Illuminate\Http\Request;
 
 class BookServiceController extends Controller
@@ -30,7 +31,7 @@ class BookServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,8 +46,10 @@ class BookServiceController extends Controller
 
 
         if ($bookservice->save()) {
+            Event(new NotificationBroadcast($bookservice));
             return $bookservice;
         }
+
 
         throw new HttpException(400, "Invalid data");
     }
@@ -54,7 +57,7 @@ class BookServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\BookService  $bookService
+     * @param  \App\BookService $bookService
      * @return \Illuminate\Http\Response
      */
     public function show(BookService $bookService)
@@ -65,7 +68,7 @@ class BookServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\BookService  $bookService
+     * @param  \App\BookService $bookService
      * @return \Illuminate\Http\Response
      */
     public function edit(BookService $bookService)
@@ -76,8 +79,8 @@ class BookServiceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\BookService  $bookService
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\BookService $bookService
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -108,7 +111,7 @@ class BookServiceController extends Controller
         $bookservice->technician_id = $request->input('technician_id');
         $bookservice->dateOfBooking = $request->input('dateOfBooking');
         $bookservice->timeOfBooking = $request->input('timeOfBooking');
-     //  $bookservice->save($request->all());
+        //  $bookservice->save($request->all());
         if ($bookservice->save()) {
             return $bookservice;
         }
@@ -125,7 +128,7 @@ class BookServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\BookService  $bookService
+     * @param  \App\BookService $bookService
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

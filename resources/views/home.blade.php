@@ -1,32 +1,32 @@
-@extends('layouts.master')
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+{{--@extends('layouts.master')--}}
+{{--@section('content')--}}
+{{--<div class="container">--}}
+    {{--<div class="row justify-content-center">--}}
+        {{--<div class="col-md-8">--}}
+            {{--<div class="card">--}}
+                {{--<div class="card-header">Dashboard</div>--}}
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                {{--<div class="card-body">--}}
+                    {{--@if (session('status'))--}}
+                        {{--<div class="alert alert-success">--}}
+                            {{--{{ session('status') }}--}}
+                        {{--</div>--}}
+                    {{--@endif--}}
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+                    {{--You are logged in!--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
+{{--@endsection--}}
 {{--@include('inc.header')--}}
 {{--<div class="container-fluid">--}}
     {{--<div class="row">--}}
         {{--<div class="banner-bg-agileits">--}}
             {{--<div class="banner-dot">--}}
                 {{--<!-- banner-text -->--}}
-                {{--<div class="banner-text">--}}
+                {{--<div class="banner-text" style="padding-top: 7rem !important;">--}}
                     {{--<fieldset>--}}
                         {{--<legend>--}}
                             {{--<h2>Services</h2>--}}
@@ -92,5 +92,6 @@
         {{--</div>--}}
 
     {{--</div>--}}
+{{--</div>--}}
 {{--<!--</div>-->--}}
 {{--@include('inc.footer')--}}

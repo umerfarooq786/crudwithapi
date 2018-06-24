@@ -23,7 +23,7 @@ Auth::routes();
 //Route::get('/home',function (){
 //    return view('home');
 //});
-Route::get('/home','CategoryController@getCategories');
+Route::get('/index','CategoryController@getCategories');
 Route::resource('category','CategoryController');
 Route::get('/Article','ArticleController@index');
 Route::get('/createspecaility',function (){

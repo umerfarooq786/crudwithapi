@@ -47,7 +47,7 @@
                 </button>
                 <div class="w3_navigation_pos">
                     <h1>
-                        <a href="index.html">Service
+                        <a href="{{url('index')}}">Service
                             <span>Finder</span>
                         </a>
                     </h1>
@@ -58,7 +58,7 @@
                 <nav class="menu menu--miranda">
                     <ul class="nav navbar-nav menu__list">
                         <li class="menu__item menu__item--current">
-                            <a href="url('home')" class="menu__link">Home</a>
+                            <a href="{{url('index')}}" class="menu__link">Home</a>
                         </li>
 
                         <li class="menu__item">

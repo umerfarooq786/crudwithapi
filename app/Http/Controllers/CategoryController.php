@@ -28,7 +28,7 @@ class CategoryController extends Controller
             ->join('specailities', 'specailities.id', '=', 'technicians.specaility_id')
             ->select('technicians.*', 'specailities.name')
             ->get();
-        return view('home',['categories' => $categories,'technicians' => $technicians]);
+        return view('index',['categories' => $categories,'technicians' => $technicians]);
 
     }
     public function indexforApi()
