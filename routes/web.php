@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -41,3 +43,8 @@ Route::get('/deletespecaility/{id}','SpecailityController@delete');
 Route::get('/technician', 'TechnicianController@index');
 Route::get('/category', 'CategoryController@index');
 Route::get('/item', 'ItemController@index');
+
+Route::get('admin/logout',function (){
+    Auth::logout();
+    return redirect('/');
+});

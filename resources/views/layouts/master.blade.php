@@ -11,7 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{ URL::to('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{url(asset('css/bootstrap.css'))}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ URL::to('bower_components/font-awesome/css/font-awesome.min.css') }}">
     <!-- Ionicons -->
@@ -74,17 +74,11 @@ desired effect
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link 3</a>
-                </li>
-            </ul>
+            <div class="" style="margin-top:15px; float: right; margin-right: 10px">
+                <a href="/admin/logout" role="button" style="color:white">
+                    <span>Logout</span>
+                </a>
+            </div>
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
@@ -122,9 +116,12 @@ desired effect
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
                 {{--<li class="active"><a href="{{url('category')}}"><i class="fa fa-link"></i> <span>Category</span></a></li>--}}
-                <li class="active"><a href="{{url('specaility')}}"><i class="fa fa-link"></i> <span>Specaility</span></a></li>
-                <li class="active"><a href="{{url('technician')}}"><i class="fa fa-link"></i> <span>Technician</span></a></li>
-                <li class="active"><a href="{{url('category')}}"><i class="fa fa-link"></i> <span>Service Category</span></a></li>
+                <li class="active"><a href="{{url('specaility')}}"><i class="fa fa-link"></i>
+                        <span>Specaility</span></a></li>
+                <li class="active"><a href="{{url('technician')}}"><i class="fa fa-link"></i>
+                        <span>Technician</span></a></li>
+                <li class="active"><a href="{{url('category')}}"><i class="fa fa-link"></i>
+                        <span>Service Category</span></a></li>
                 <li class="active"><a href="{{url('item')}}"><i class="fa fa-link"></i> <span>Item</span></a></li>
                 {{--<li class="active"><a href="{{url('Article')}}"><i class="fa fa-link"></i> <span>Article</span></a></li>--}}
 
@@ -161,7 +158,6 @@ desired effect
     </footer>
 
 
-
 </div>
 <!-- ./wrapper -->
 
@@ -174,21 +170,21 @@ desired effect
 <!-- AdminLTE App -->
 <script src="{{ URL::to('dist/js/adminlte.min.js') }}"></script>
 <script>
-    $('#edit').on('show.bs.modal',function (event) {
-        var button=$(event.relatedTarget)
-        var title=button.data('mytitle')
-        var description=button.data('mydescription')
+    $('#edit').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var title = button.data('mytitle')
+        var description = button.data('mydescription')
         var cat_id = button.data('catid')
-        var modal=$(this)
+        var modal = $(this)
         modal.find('.modal-body #title').val(title);
         modal.find('.modal-body #des').val(description);
         modal.find('.modal-body #cat_id').val(cat_id);
 
     })
-    $('#delete').on('show.bs.modal',function (event) {
-        var button=$(event.relatedTarget);
+    $('#delete').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
         var cat_id = button.data('catid');
-        var modal=$(this);
+        var modal = $(this);
         modal.find('.modal-body #cat_id').val(cat_id);
 
     })
