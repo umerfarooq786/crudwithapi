@@ -6,8 +6,15 @@
             <div class="row">
                 <div>
                     @if(session('info'))
-                        <div class="alert alert-success">
-                            {{session('info')}}
+                        <div class="">
+                            {{--{{session('info')}}--}}
+
+                            <div id="snackbar" class="show"> {{session('info')}} </div>
+                            <script>
+                                    var x = document.getElementById("snackbar");
+                                    setTimeout(function(){ x.className = x.className.replace("show", "");
+                                    }, 3000);
+                            </script>
                         </div>
                     @endif
                 </div>
@@ -41,4 +48,5 @@
             </table>
         </div>
     </div>
+
 @endsection

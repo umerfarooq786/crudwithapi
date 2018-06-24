@@ -17,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ URL::to('bower_components/Ionicons/css/ionicons.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ URL::to('dist/css/AdminLTE.min.css') }}">
+    <link rel="stylesheet" href="{{url(asset('css/AdminLTE.css'))}}">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
@@ -74,7 +74,17 @@ desired effect
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
