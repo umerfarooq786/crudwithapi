@@ -13,17 +13,21 @@
 
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//Route::get('/login', function () {
+//    return view('welcome');
+//});
+
 
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/home',function (){
-//    return view('home');
-//});
-Route::get('/index','CategoryController@getCategories');
+Route::get('/home',function (){
+    return view('home');
+})->middleware('auth');
+Route::get('/','CategoryController@getCategories')->name('/index');
 Route::resource('category','CategoryController');
 Route::get('/Article','ArticleController@index');
 Route::get('/createspecaility',function (){
@@ -46,5 +50,5 @@ Route::get('/item', 'ItemController@index');
 
 Route::get('admin/logout',function (){
     Auth::logout();
-    return redirect('/');
+    return redirect('/login');
 });

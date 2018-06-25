@@ -34,25 +34,55 @@ class BookServiceController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+//    public function store(Request $request)
+//    {
+//        $bookservice = new BookService;
+//        $bookservice->brand_name = $request->input('brand_name');
+//        $bookservice->item_name = $request->input('item_name');
+//        $bookservice->fault = $request->input('fault');
+//        $bookservice->technician_id = $request->input('technician_id');
+//        $bookservice->dateOfBooking = $request->input('dateOfBooking');
+//        $bookservice->timeOfBooking = $request->input('timeOfBooking');
+//
+//
+//        if ($bookservice->save()) {
+//            Event(new NotificationBroadcast($bookservice));
+//            return $bookservice;
+//        }
+//
+//
+//        throw new HttpException(400, "Invalid data");
+//    }
+    public function store(Request $request, $id)
     {
-        $bookservice = new BookService;
-        $bookservice->brand_name = $request->input('brand_name');
-        $bookservice->item_name = $request->input('item_name');
-        $bookservice->fault = $request->input('fault');
-        $bookservice->technician_id = $request->input('technician_id');
-        $bookservice->dateOfBooking = $request->input('dateOfBooking');
-        $bookservice->timeOfBooking = $request->input('timeOfBooking');
+//        $this->validate($request , [
+//            'brand_name' => 'required',
+//            'item_name' => 'required',
+//            'fault' => 'required',
+//            'technician_id' => 'required',
+//
+//
+//        ]);
+        $data=array(
+            'brand_name'=> $request->input('brand_name'),
+            'item_name'=> $request->input('item_name'),
+            'fault' => $request->input('fault'),
+            'technician_id' => $request->input('technician_id'),
+            'dateOfBooking' => $request->input('dateOfBooking'),
+            'timeOfBooking' => $request->input('timeOfBooking')
+        );
+        BookService::where('id',$id)->update($data);
 
-
-        if ($bookservice->save()) {
-            Event(new NotificationBroadcast($bookservice));
-            return $bookservice;
-        }
+//        if ($bookservice->save()) {
+//            Event(new NotificationBroadcast($bookservice));
+//            return $bookservice;
+//        }
 
 
         throw new HttpException(400, "Invalid data");
     }
+
+
 
     /**
      * Display the specified resource.
