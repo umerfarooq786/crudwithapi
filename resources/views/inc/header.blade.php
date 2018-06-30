@@ -73,9 +73,9 @@
                         <li class="menu__item">
                             <a href="" class="scroll menu__link">contact</a>
                         </li>
-                        <li class="menu__item">
-                            <button class="btn btn-primary" class="scroll menu__link> <a href="" class="scroll menu__link">Book Service</a></button>
-                        </li>
+                        {{--<li class="menu__item">--}}
+                            {{--<button class="btn btn-primary" class="scroll menu__link> <a href="" class="scroll menu__link">Book Service</a></button>--}}
+                        {{--</li>--}}
                     </ul>
                 </nav>
             </div>

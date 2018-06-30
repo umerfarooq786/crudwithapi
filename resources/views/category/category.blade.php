@@ -12,15 +12,22 @@
                     @endif
                 </div>
             </div>
-            {{--<div class="row">--}}
-                {{--<a href='{{url("/createspecaility")}}'><button class="btn btn-primary">Add New</button></a>--}}
-            {{--</div>--}}
+            <div class="row">
+                <div class="col-md-6">
+                <a href='{{url("/createcategory")}}'><button class="btn btn-primary">Add New</button></a>
+                </div>
+
+                <div class="col-md-6">
+
+                </div>
+            </div>
 
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Service's Name </th>
+                    <th scope="col">Action </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,10 +37,10 @@
                         <tr>
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->name }}</td>
-                            {{--<td>--}}
-                                {{--<a href='{{ url("/updatespecaility/{$specaility->id}") }}'><button class="btn btn-success">Update </button></a>--}}
-                                {{--<a href='{{ url("/deletespecaility/{$specaility->id}") }}'><button class="btn btn-danger"> Delete </button></a>--}}
-                            {{--</td>--}}
+                            <td>
+                                <a href='{{ url("/updatecategory/{$category->id}") }}'><button class="btn btn-success">Update </button></a>
+                                <a href='{{ url("/deletecategory/{$category->id}") }}'><button class="btn btn-danger"> Delete </button></a>
+                            </td>
                         </tr>
                     @endforeach
                 @endif

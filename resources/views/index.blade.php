@@ -25,7 +25,7 @@
                 @if(count($categories) > 0)
                     @foreach($categories->all() as $categorie)
 
-                        <th id="category" scope="col">{{ $categorie->name }} </td>
+                       <a href=""> <th id="category" scope="col">{{ $categorie->name }} </td>
                     @endforeach
                 @endif
             </tr>

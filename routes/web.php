@@ -33,6 +33,7 @@ Route::get('/Article','ArticleController@index');
 Route::get('/createspecaility',function (){
     return view('specaility.createspecaility');
 });
+
 Route::get('/createitem','ItemController@getCategory');
 Route::post('/insertitem','ItemController@create');
 Route::get('/createtechnician','TechnicianController@getSpecaility');
