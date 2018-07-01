@@ -27,6 +27,7 @@ Route::get('/faults', function () {
         ->get();
 });
 Route::post('register/user',"CustomerController@registeration");
+Route::post('login/user',"CustomerController@login");
 Route::get('/technicians', 'TechnicianController@indexforApi');
 Route::get('/technician/{id}', 'TechnicianController@show');
 Route::get('/category/{id}/items', function ($id) {
