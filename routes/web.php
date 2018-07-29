@@ -24,16 +24,17 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home',function (){
-    return view('home');
-})->middleware('auth');
+//Route::get('/home',function (){
+//    return view('home');
+//})->middleware('auth');
+Route::get('/home','HomeController@create')->middleware('auth');
 Route::get('/','CategoryController@getCategories')->name('/index');
 Route::resource('category','CategoryController');
 Route::get('/Article','ArticleController@index');
 Route::get('/createspecaility',function (){
     return view('specaility.createspecaility');
 });
-
+Route::get('/searchcategory','CategoryController@searchCategory');
 Route::get('/createitem','ItemController@getCategory');
 Route::post('/insertitem','ItemController@create');
 Route::get('/createtechnician','TechnicianController@getSpecaility');

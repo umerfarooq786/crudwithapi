@@ -26,8 +26,13 @@ Route::get('/faults', function () {
         ->select('faults.*')
         ->get();
 });
-Route::post('register/user',"CustomerController@registeration");
-Route::post('login/user',"CustomerController@login");
+
+
+Route::post('postnear', 'TechnicianController@postnear');
+
+
+Route::post('register/user', "CustomerController@registeration");
+Route::post('login/user', "CustomerController@login");
 Route::get('/technicians', 'TechnicianController@indexforApi');
 Route::get('/technician/{id}', 'TechnicianController@show');
 Route::get('/category/{id}/items', function ($id) {
@@ -44,3 +49,6 @@ Route::get('/item/{id}/brands', function ($id) {
 });
 Route::get('/categories', 'CategoryController@indexforApi');
 Route::get('/category/{id}', 'CategoryController@show');
+Route::get('/test', function () {
+    event(new NotificationBroadcast(['msg' => 7]));
+});

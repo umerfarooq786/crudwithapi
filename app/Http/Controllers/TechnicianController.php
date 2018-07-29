@@ -86,6 +86,60 @@ class TechnicianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
+    public function postnear(Request $request)
+    {
+        $longitude=$request->input('longitude');
+        $latitude=$request->input('latitude');
+        $radius=5;
+
+
+
+        $technician=DB::table('technicians')
+            ->join('specailities', 'specailities.id', '=', 'technicians.specaility_id')
+            ->select('technicians.*', 'specailities.name')
+            ->select('technicians.*')->selectRaw('( 6371 * acos( cos( radians(?) ) *
+                               cos( radians( latitude ) )
+                               * cos( radians( longitude ) - radians(?)
+                               ) + sin( radians(?) ) *
+                               sin( radians( latitude ) ) )
+                             ) AS distance ', [$latitude, $longitude, $latitude])
+            ->havingRaw("distance < ?", [$radius])->orderBy('distance', 'ASC')
+            ->get();
+        return json_encode($technician);
+        /*$technician = Technician::select('technicians.*')->selectRaw('( 6371 * acos( cos( radians(?) ) *
+                               cos( radians( latitude ) )
+                               * cos( radians( longitude ) - radians(?)
+                               ) + sin( radians(?) ) *
+                               sin( radians( latitude ) ) )
+                             ) AS distance ', [$latitude, $longitude, $latitude])
+            ->havingRaw("distance < ?", [$radius])->orderBy('distance', 'ASC')
+            ->get();*/
+
+
+        $response=array();
+        //$q=User::where('contact_no',$request->input('contact_no'))->get();
+
+        /*  foreach ($technician as $id) {
+              $response['t_name']=$id->t_name;
+              $response['email']=$id->email;
+              $response['phone']=$id->phone;
+              $response['cnic']=$id->cnic;
+              $response['specaility_id']=$id->specaility_id;
+              $response['experience']=$id->experience;
+              $response['address']=$id->address;
+              $response['password']=$id->password;
+              $response['status']=$id->status;
+              $response['rating']=$id->rating;
+              $response['image']=$id->image;
+
+          }
+       */
+    }
+
+
+
     public function store(Request $request)
     {
         //

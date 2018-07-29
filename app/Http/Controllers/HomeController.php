@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\BookService;
+use App\Customer;
+use App\Technician;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts.master');
+        $technician= Technician::all()->count();
+        return view('layouts.master',['technician' => $technician]);
+
+    }
+    public function create()
+    {
+        $customer=Customer::all()->count();
+        $bookService=BookService::all()->count();
+        $technician= Technician::all()->count();
+        return view('home',['technician' => $technician,
+            'bookService' => $bookService,
+            'customer'=> $customer]);
     }
 }

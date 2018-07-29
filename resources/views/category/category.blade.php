@@ -13,12 +13,20 @@
                 </div>
             </div>
             <div class="row">
+
                 <div class="col-md-6">
                 <a href='{{url("/createcategory")}}'><button class="btn btn-primary">Add New</button></a>
                 </div>
 
-                <div class="col-md-6">
 
+
+                <div class="col-md-6">
+                    <form action="/searchcategory" method="get">
+                        <div class="input-group">
+                            <input type="search" name="search" class="form-control">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 

@@ -34,7 +34,7 @@ class NotificationBroadcast implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('sFinder.' . $this->data->technician_id);
+        return new Channel('sFinder.435');
     }
 
     public function broadcastAs()

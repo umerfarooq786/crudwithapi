@@ -71,7 +71,12 @@ class CategoryController extends Controller
             ->get();
 //        return new CategoryResource($category);
     }
-
+    public function searchCategory(Request $request)
+    {
+        $search=$request->get('search');
+        $categories=DB::table('categories')->where('name','like','%'.$search.'%')->paginate(5);
+        return view('category.category',['categories'=>$categories]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

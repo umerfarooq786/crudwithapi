@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -18,7 +19,128 @@
             </div>
         </div>
     </div>
+
 </div>
+
+@section('content')
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>{{$technician}}</h3>
+
+                            <p>Total Technicians</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>{{$bookService}}</h3>
+                            <p>New Requests</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>{{$customer}}</h3>
+
+                            <p>Customers</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">
+                            More info <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-success">
+                            <div class="ct-chart" id="dailySalesChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Daily Sales</h4>
+                            <p class="card-category">
+                                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase
+                                in today sales.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">access_time</i> updated 4 minutes ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-warning">
+                            <div class="ct-chart" id="websiteViewsChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Email Subscriptions</h4>
+                            <p class="card-category">Last Campaign Performance</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">access_time</i> campaign sent 2 days ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-danger">
+                            <div class="ct-chart" id="completedTasksChart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Completed Tasks</h4>
+                            <p class="card-category">Last Campaign Performance</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons">access_time</i> campaign sent 2 days ago
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+@endsection
+
+
+@section('script')
+    <script>
+
+        $(function () {
+            $('#index').addClass('active');
+        })
+    </script>
+    @endSection
 @endsection
 {{--@include('inc.header')--}}
 {{--<div class="container-fluid">--}}
