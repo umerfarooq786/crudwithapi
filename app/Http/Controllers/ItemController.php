@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
 //        $item= Item::all();
@@ -24,12 +19,21 @@ class ItemController extends Controller
 //        DD($item);
         return view('Item.item',['items' => $item ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function getItem($id)
+    {
+        $items=DB::table('items')
+            ->select('items.*')
+            ->where('items.category_id', '=', $id)
+            ->get();
+
+         return view('item.selectitem',['items' => $items ]);
+//        return $items;
+    }
     public function create(Request $request)
     {
         $this->validate($request , [

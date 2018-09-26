@@ -12,21 +12,7 @@
 */
 
 use Illuminate\Support\Facades\Auth;
-
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-//Route::get('/login', function () {
-//    return view('welcome');
-//});
-
-
 Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/home',function (){
-//    return view('home');
-//})->middleware('auth');
 Route::get('/home','HomeController@create')->middleware('auth');
 Route::get('/','CategoryController@getCategories')->name('/index');
 Route::resource('category','CategoryController');
@@ -36,6 +22,19 @@ Route::get('/createspecaility',function (){
 });
 Route::get('/searchcategory','CategoryController@searchCategory');
 Route::get('/createitem','ItemController@getCategory');
+//Route::get('/selectitem','ItemController@getItem');
+//Route::get('/category/{id}', function ($id) {
+//    $items=DB::table('items')
+//        ->select('items.*')
+//        ->where('items.category_id', '=', $id)
+//        ->get();
+//    return view('item.selectitem',['item' => $items ]);
+//});
+Route::get('/items/{id}', 'ItemController@getItem');
+Route::get('/brands/{id}/{category_id}', 'BrandController@getbrand');
+Route::get('/faults/{id}/{category_id}/{brand->id}', function (){
+
+});
 Route::post('/insertitem','ItemController@create');
 Route::get('/createtechnician','TechnicianController@getSpecaility');
 Route::post('/inserttechnician','TechnicianController@create');

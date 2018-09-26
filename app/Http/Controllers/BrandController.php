@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BrandController extends Controller
 {
@@ -15,6 +16,15 @@ class BrandController extends Controller
     public function index()
     {
         //
+    }
+    public function getbrand($id)
+    {
+        $brands=DB::table('brands')
+            ->select('brands.*')
+            ->where('brands.item_id', '=', $id)
+            ->get();
+
+        return view('brand.selectbrand',['brands' => $brands ]);
     }
 
     /**
